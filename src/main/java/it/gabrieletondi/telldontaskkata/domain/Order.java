@@ -11,6 +11,10 @@ public class Order {
     private OrderStatus status;
     private int id;
 
+    public Order() {
+        this.status = OrderStatus.CREATED;
+    }
+
     public BigDecimal getTotal() {
         return total;
     }
@@ -57,5 +61,17 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isShipped() {
+        return this.status == OrderStatus.SHIPPED;
+    }
+
+    public boolean isRejected() {
+        return this.status == OrderStatus.REJECTED;
+    }
+
+    public boolean isApproved() {
+        return this.status == OrderStatus.APPROVED;
     }
 }
